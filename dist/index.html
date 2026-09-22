@@ -1,3 +1,80 @@
 <!doctype html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102c3d"><title>ERS: Elefantes rosados en la escena del crimen</title><link rel="stylesheet" href="style.css"></head>
-<body><main id="game" aria-label="Juego 3D del elefante rosado"><canvas id="world" aria-label="Ciudad 3D. Usa las flechas para volar, espacio para subir y C para bajar."></canvas><header><div class="brand"><h1><span class="ers-mark">ERS<span>✦</span></span><span class="ers-name">Elefantes rosados en la escena del crimen</span></h1></div><div class="header-actions"><div class="music-panel"><button id="music-toggle" aria-pressed="false" aria-label="Activar música">♫ <span>Activar música</span></button><label class="volume-control" for="music-volume">Volumen <input id="music-volume" type="range" min="0" max="100" value="35" aria-label="Volumen de la música"></label></div><button id="pause" aria-label="Pausar juego">Ⅱ <span>Pausa</span></button></div></header><aside class="telemetry"><span>VUELO LIBRE</span><strong id="height">9 <small>m</small></strong><span>ALTITUD</span></aside><div id="notice" role="status">¡La ciudad es tuya! Usa las flechas para explorar.</div><footer><div class="instructions"><div class="arrows">↑<br>← ↓ →</div><div><strong>Vuela a tu ritmo</strong><p>Flechas · moverte <b> / </b> Espacio · subir <b> / </b> C · bajar</p></div></div><button id="reset" title="Volver al punto de partida">↺ <span>Reiniciar</span></button></footer><div class="touch"><div class="pad"><button data-key="ArrowUp" aria-label="Avanzar">↑</button><button data-key="ArrowLeft" aria-label="Izquierda">←</button><button data-key="ArrowDown" aria-label="Retroceder">↓</button><button data-key="ArrowRight" aria-label="Derecha">→</button></div><div class="vertical"><button data-key="Space" aria-label="Subir">Subir +</button><button data-key="KeyC" aria-label="Bajar">Bajar −</button></div></div><div id="overlay" hidden><h2>Un respiro en el cielo</h2><p>Tu elefante te está esperando.</p><button id="resume">Seguir volando →</button></div><div id="error" hidden><h2>No se pudo iniciar el juego</h2><p>Activa la aceleración gráfica de tu navegador y vuelve a cargar la página.</p></div></main><audio id="music" src="ers-theme.mp3" loop preload="none"></audio><script type="module" src="game.js"></script></body></html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102c3d">
+  <title>ERS: Elefantes rosados en la escena del crimen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game" aria-label="Juego 3D del elefante rosado">
+    <canvas id="world" aria-label="Ciudad 3D. Usa las flechas para volar, espacio para subir y C para bajar."></canvas>
+
+    <header>
+      <div class="brand">
+        <h1>
+          <span class="ers-mark">ERS<span>&#10022;</span></span>
+          <span class="ers-name">Elefantes rosados en la escena del crimen</span>
+        </h1>
+      </div>
+      <div class="header-actions">
+        <div class="music-panel">
+          <button id="music-toggle" aria-pressed="false" aria-label="Activar m&uacute;sica">&#9835; <span>Activar m&uacute;sica</span></button>
+          <label class="volume-control" for="music-volume">
+            Volumen
+            <input id="music-volume" type="range" min="0" max="100" value="35" aria-label="Volumen de la m&uacute;sica">
+          </label>
+        </div>
+        <button id="pause" aria-label="Pausar juego">&#8545; <span>Pausa</span></button>
+      </div>
+    </header>
+
+    <aside class="telemetry">
+      <span>VUELO LIBRE</span>
+      <strong id="height">9 <small>m</small></strong>
+      <span>ALTITUD</span>
+    </aside>
+
+    <div id="notice" role="status">&#161;La ciudad es tuya! Usa las flechas para explorar.</div>
+
+    <footer>
+      <div class="instructions">
+        <div class="arrows">&#8593;<br>&#8592; &#8595; &#8594;</div>
+        <div>
+          <strong>Vuela a tu ritmo</strong>
+          <p>Flechas &middot; moverte <b> / </b> Espacio &middot; subir <b> / </b> C &middot; bajar</p>
+        </div>
+      </div>
+      <button id="reset" title="Volver al punto de partida">&#8634; <span>Reiniciar</span></button>
+    </footer>
+
+    <div class="touch">
+      <div class="pad">
+        <button data-key="ArrowUp" aria-label="Avanzar">&#8593;</button>
+        <button data-key="ArrowLeft" aria-label="Izquierda">&#8592;</button>
+        <button data-key="ArrowDown" aria-label="Retroceder">&#8595;</button>
+        <button data-key="ArrowRight" aria-label="Derecha">&#8594;</button>
+      </div>
+      <div class="vertical">
+        <button data-key="Space" aria-label="Subir">Subir +</button>
+        <button data-key="KeyC" aria-label="Bajar">Bajar &#8722;</button>
+      </div>
+    </div>
+
+    <div id="overlay" hidden>
+      <h2>Un respiro en el cielo</h2>
+      <p>Tu elefante te est&aacute; esperando.</p>
+      <button id="resume">Seguir volando &#8594;</button>
+    </div>
+
+    <div id="error" hidden>
+      <h2>No se pudo iniciar el juego</h2>
+      <p>Activa la aceleraci&oacute;n gr&aacute;fica de tu navegador y vuelve a cargar la p&aacute;gina.</p>
+    </div>
+  </main>
+
+  <audio id="music" src="ers-theme.mp3" loop preload="none"></audio>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
