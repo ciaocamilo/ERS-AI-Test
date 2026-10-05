@@ -127,6 +127,6 @@ for delay, g in [(.071, .11), (.137, .08), (.211, .055), (.317, .035)]:
 wet = np.tanh(wet * 1.3)
 wet *= .86 / max(np.max(np.abs(wet)), .001)
 
-output = Path(__file__).resolve().parent / 'ers-theme.wav'
-write(str(output), S, (wet * 32767).astype(np.int16))
+write(str(Path(__file__).resolve().parent / 'ers-theme.wav'), S, (wet * 32767).astype(np.int16))
 print(f'Composed {duration:.2f}s original looping instrumental; peak {np.max(np.abs(wet)):.2f}')
+
