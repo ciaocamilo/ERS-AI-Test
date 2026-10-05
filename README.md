@@ -1,64 +1,61 @@
-# ERS: Elefantes rosados en la escena del crimen
+# ERS: Elefantes rosados en la ciudad
 
-Pequeño videojuego 3D de vuelo libre en el navegador, desarrollado con JavaScript y Three.js. Controla un elefante rosado por una ciudad con edificios, calles, pasos peatonales, semáforos y vehículos animados.
+Código fuente de la versión publicada el 3 de octubre de 2026 (hora de Colombia).
+Sitio: https://elefante-en-el-aire.ciaocamilo.chatgpt.site
+Commit de referencia: d1a8d476fd73fcc69e4f44fe7d9ef68599563ac9
 
-Incluye una banda sonora instrumental original con saxofón sintetizado, cuerdas y percusión. La música se activa de forma voluntaria, tiene control de volumen y se detiene al pausar.
+## Ejecutar localmente
 
-## Ejecutar en tu equipo
+1. Descomprime este ZIP.
+2. Abre una terminal dentro de la carpeta `ERS_Codigo_Fuente`.
+3. Con Python 3 instalado, ejecuta:
 
-Necesitas un navegador con WebGL y Python 3 para servir los archivos. Desde la raíz del proyecto:
-
-```sh
+```bash
 python -m http.server 8000 --directory dist
 ```
 
-En Windows también puedes usar `py -m http.server 8000 --directory dist`.
+En Linux/macOS puedes usar `python3` en lugar de `python`.
+4. Abre http://localhost:8000 en un navegador con WebGL.
 
-Abre http://localhost:8000. No abras `index.html` directamente con doble clic: el juego utiliza módulos JavaScript y necesita un servidor HTTP. No requiere npm, compilación ni servicios externos para jugar. Detén el servidor con Ctrl+C.
+No requiere npm, compilación, claves API ni servicios externos. Three.js y la música están incluidos.
+Abre el juego mediante el servidor HTTP; abrir `index.html` con doble clic puede bloquear los módulos JavaScript.
 
-## Controles
+## Controles y objetivo
 
-| Acción | Control |
-| --- | --- |
-| Desplazarse | Flechas del teclado |
-| Subir | Espacio |
-| Bajar | C |
-| Pausar o continuar | Esc o botón Pausa |
-| Regresar al inicio | Reiniciar |
-| Activar o silenciar música | Botón de música |
+- Flechas: desplazarse; Espacio: subir; C: bajar.
+- En móvil aparecen botones táctiles de dirección y altura.
+- Recolecta las siete estrellas. Al reiniciar cambian de ubicación.
+- El panel muestra dirección, distancia y altura de la estrella más cercana.
+- Los controles superiores permiten activar música, ajustar volumen, pausar y reiniciar.
+- El sonido de premio se habilita después de interactuar con el juego.
 
-En dispositivos táctiles aparecen botones de movimiento y altura.
-
-## Archivos
+## Estructura
 
 - `dist/index.html`: interfaz del juego.
-- `dist/style.css`: estilos y adaptación a pantallas pequeñas.
-- `dist/game.js`: escena, elefante, ciudad, animaciones, cámara y controles.
-- `dist/music.js`: reproducción y controles de la música.
-- `dist/ers-theme.mp3`: composición instrumental en bucle.
-- `dist/three.module.js`: Three.js 0.160.1, incluida localmente.
-- `dist/THREE-LICENSE.txt`: licencia de Three.js.
-- `music-source/compose.py`: generación de la banda sonora.
-- `music-source/requirements.txt`: dependencias para regenerar el audio.
+- `dist/style.css`: estilos y adaptación a móvil.
+- `dist/game.js`: escena, ciudad, movimiento y coordinación del juego.
+- `dist/controls.js`: teclado y controles táctiles.
+- `dist/city-life.js`: colisiones, peatones y agrupación de objetos 3D.
+- `dist/scenery.js`: materiales, lago, reflejos y perturbaciones del agua.
+- `dist/star-quest.js`: estrellas, premios, victoria y nubes animadas.
+- `dist/elephant-*.js`: cuerpo, ojos, parpadeo y sonrisa.
+- `dist/music.js` y `dist/ers-theme.mp3`: reproducción de la música.
+- `dist/three.module.js`: dependencia Three.js, revisión 160, bajo licencia MIT.
+- `music-source/compose.py`: sintetizador de la música original.
 
 ## Regenerar la música (opcional)
 
-La música incluida está lista para reproducirse. Para modificarla necesitas Python 3, NumPy, SciPy y FFmpeg:
+El MP3 listo para usar ya está incluido. Solo para regenerarlo necesitas NumPy, SciPy y FFmpeg:
 
-```sh
-python -m pip install -r music-source/requirements.txt
+```bash
+python -m pip install numpy scipy
 python music-source/compose.py
-ffmpeg -y -i music-source/ers-theme.wav -codec:a libmp3lame -b:a 160k dist/ers-theme.mp3
+ffmpeg -i music-source/ers-theme.wav -codec:a libmp3lame -q:a 3 dist/ers-theme.mp3
 ```
 
-El script guarda el WAV junto a `compose.py`. El saxofón es sintetizado, no una grabación acústica. El WAV intermedio no se incluye en Git.
+La copia del generador incluida usa una ruta relativa al propio script para que funcione fuera del entorno original.
 
-## Publicación y alcance
+## Publicar en otro alojamiento
 
-La carpeta `dist/` puede alojarse en cualquier servidor de archivos estáticos. Este repositorio no incluye credenciales, configuración interna del alojamiento ni historial del sitio privado. Publicar el código en GitHub no publica automáticamente una web en GitHub Pages.
-
-Es un prototipo de exploración libre; no tiene misiones, puntuación ni guardado de partidas.
-
-## Dependencias y licencia
-
-Three.js se distribuye bajo licencia MIT; su aviso completo se incluye en `dist/THREE-LICENSE.txt`. No se ha seleccionado todavía una licencia de distribución para el código y la música propios del proyecto.
+Publica el contenido de `dist/` como sitio estático. Conserva los nombres y la estructura de los archivos.
+El ZIP no incluye credenciales, historial Git ni configuración de la cuenta de alojamiento.
