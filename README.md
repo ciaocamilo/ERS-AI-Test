@@ -2,7 +2,21 @@
 
 Código fuente de la versión publicada el 3 de octubre de 2026 (hora de Colombia).
 Sitio: https://elefante-en-el-aire.ciaocamilo.chatgpt.site
-Commit de referencia: d1a8d476fd73fcc69e4f44fe7d9ef68599563ac9
+Creado por: Camilo Andrés Castañeda Galindo
+
+## Capturas de pantalla
+
+| Vista general | Vuelo y estrellas |
+| --- | --- |
+| ![Vista general de la ciudad 3D](screenshots/01-vista-general.png) | ![Elefante volando hacia una estrella](screenshots/02-vuelo-estrella.png) |
+
+| Pantalla de pausa | Controles táctiles en móvil |
+| --- | --- |
+| ![Pantalla de pausa del juego](screenshots/03-pausa.png) | ![Interfaz con controles táctiles en un dispositivo móvil](screenshots/04-movil.png) |
+
+| Elefante de frente | Elefante de lado |
+| --- | --- |
+| ![Elefante rosado visto de frente](screenshots/05-elefante-frente.png) | ![Elefante rosado visto de perfil](screenshots/06-elefante-lado.png) |
 
 ## Ejecutar localmente
 
@@ -54,8 +68,3 @@ ffmpeg -i music-source/ers-theme.wav -codec:a libmp3lame -q:a 3 dist/ers-theme.m
 ```
 
 La copia del generador incluida usa una ruta relativa al propio script para que funcione fuera del entorno original.
-
-## Publicar en otro alojamiento
-
-Publica el contenido de `dist/` como sitio estático. Conserva los nombres y la estructura de los archivos.
-El ZIP no incluye credenciales, historial Git ni configuración de la cuenta de alojamiento.
