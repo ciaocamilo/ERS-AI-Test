@@ -18,6 +18,14 @@ Creado por: Camilo Andrés Castañeda Galindo
 | --- | --- |
 | ![Elefante rosado visto de frente](screenshots/05-elefante-frente.png) | ![Elefante rosado visto de perfil](screenshots/06-elefante-lado.png) |
 
+| Elefante en la ciudad |
+| --- |
+| ![Elefante rosado en una intersección de la ciudad 3D](screenshots/07-elefante-ciudad.png) |
+
+| Elefante junto al semáforo |
+| --- |
+| ![Elefante rosado junto a un semáforo](screenshots/08-elefante-semaforo.png) |
+
 ## Ejecutar localmente
 
 1. Descomprime este ZIP.
